@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <script src="https://unpkg.com/vue@next"></script>
+
+  <title>Document</title>
+</head>
+<body>
+  
+  <div id="app">
+    <h1>{{ titulo }}</h1>
+
+    <button v-on:click="agregarSaldo">Agregar cantidad</button> <!-- abreviatura para v-on es @click -->
+    <h3>Cantidad: <span style="color: red">{{ cantidad }}</span></h3>
+  </div>
+
+  <script src="main.js"></script>
+  <script>
+    const mountedApp = app.mount('#app');
+  </script>
+</body>
+</html>
