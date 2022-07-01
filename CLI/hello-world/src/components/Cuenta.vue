@@ -4,7 +4,7 @@
   <h3>Estado de cuenta: {{ estado ? 'Activa' : 'Desactivada' }}</h3>
   <div v-for="(servicio, index) in servicios" :key="index">{{ index + 1 }} - {{ servicio }}</div>
 
-  <AccionSaldo texto="Disminuir Saldo" @accion="disminuir" />
+  <AccionSaldo texto="Disminuir Saldo" @accion="disminuir" :desactivar="desactivar" />
   <AccionSaldo texto="Aumentar Saldo" @accion="aumentar" />
 </template>
 
@@ -21,14 +21,21 @@ export default {
       saldo: 1000,
       estado: true,
       servicios: ['giros', 'pagos', 'transferencias'],
+      desactivar: false
     }
   },
   methods: {
     aumentar() {
-      this.saldo = this.saldo + 100
+      this.saldo = this.saldo + 100;
+      this.desactivar = false;
     },
     disminuir() {
-      this.saldo = this.saldo - 100
+      if (this.saldo === 0) {
+        this.desactivar = true;
+        alert('El saldo llego a 0')
+      } else {
+        this.saldo = this.saldo - 100
+      }
     },
   }
 }
