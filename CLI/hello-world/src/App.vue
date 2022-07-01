@@ -1,7 +1,7 @@
 <template>
   <img alt="Vue logo" src="./assets/logo.png">
-  <Titulo texto="Mi banco 2.0" />
- <Cuenta />
+  <Titulo texto="Mi banco dinámico 2.0" />
+  <Cuenta />
 </template>
 
 <script>
